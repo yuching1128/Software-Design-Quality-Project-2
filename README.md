@@ -2,7 +2,7 @@
 
 The task  is to create a skeleton or outline of a test plan document for another project.
 
-Test Plan Document for Virginia Tech Smart Parking System [here](https://sites.google.com/vt.edu/cs5744-vt-smart-parking/modules?authuser=0)
+Test Plan Document for [Virginia Tech Smart Parking System](https://sites.google.com/vt.edu/cs5744-vt-smart-parking/modules?authuser=0)
 
 #### Test Scope: 
 
