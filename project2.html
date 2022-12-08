@@ -1,0 +1,1813 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+
+<head>
+  <title>VT smart parking system</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+      font-family: "Lato", sans-serif
+    }
+
+    .mySlides {
+      display: none
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <div class="w3-top">
+    <div class="w3-bar w3-black w3-card">
+      <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)"
+        onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i>
+      </a>
+      <div class="w3-dropdown-hover w3-hide-small">
+        <button class="w3-padding-large w3-button" title="Test Scope">Test Scope<i
+            class="fa fa-caret-down"></i></button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+          <a href="#testscope" class="w3-bar-item w3-button">Introduction</a>
+          <a href="#requirements" class="w3-bar-item w3-button">Requirements being tested</a>
+          <a href="#outofscope" class="w3-bar-item w3-button">Requirements not tested</a>
+        </div>
+      </div>
+      <a href="#testplan" class="w3-bar-item w3-button w3-padding-large">Test Plan</a>
+      <div class="w3-dropdown-hover w3-hide-small">
+        <button class="w3-padding-large w3-button" title="More">Test Procedure<i class="fa fa-caret-down"></i></button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+          <a href="#testprocedure" class="w3-bar-item w3-button">Phase 1</a>
+          <a href="#phase2" class="w3-bar-item w3-button">Phase 2</a>
+          <a href="#phase3" class="w3-bar-item w3-button">Phase 3</a>
+          <a href="#phase4" class="w3-bar-item w3-button">Phase 4</a>
+          <a href="#phase5" class="w3-bar-item w3-button">Phase 5</a>
+          <a href="#phase6" class="w3-bar-item w3-button">Phase 6</a>
+        </div>
+      </div>
+      <div class="w3-dropdown-hover w3-hide-small">
+        <button class="w3-padding-large w3-button" title="More">Validation Tests<i
+            class="fa fa-caret-down"></i></button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+          <a href="#testcases" class="w3-bar-item w3-button">Test cases</a>
+          <a href="#tc1" class="w3-bar-item w3-button">Test Cases 1-9</a>
+          <a href="#tc10" class="w3-bar-item w3-button">Test Cases 10-19</a>
+          <a href="#tc20" class="w3-bar-item w3-button">Test Cases 20-29</a>
+          <a href="#tc30" class="w3-bar-item w3-button">Test Cases 30-39</a>
+          <a href="#tc40" class="w3-bar-item w3-button">Test Cases 40-49</a>
+          <a href="#tc50" class="w3-bar-item w3-button">Test Cases 50-56</a>
+          <a href="#traceabilitymatrix" class="w3-bar-item w3-button">Traceability Matrix</a>
+        </div>
+      </div>
+      <a href="#conclusion" class="w3-bar-item w3-button w3-padding-large">Conclusion</a>
+      <!-- <a href="#finalthoughts" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Final Thoughts</a> -->
+    </div>
+  </div>
+
+  <!-- Page content -->
+  <div class="w3-content" style="max-width:2000px;margin-top:46px">
+
+    <!-- The Test Scope Section -->
+    <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="testscope">
+      <h1>Test Scope</h1>
+      <h2 class="w3-left-align" id="testscope">Introduction</h2>
+      <p class="w3-left-align">
+        <b>Project Title: </b> <a
+          href="https://sites.google.com/vt.edu/cs5744-vt-smart-parking/home?authuser=0">Virginia Tech Smart Parking
+          System</a> <br>
+        <b>Authors: </b>Raghavi Vannala, Swati Lamba, Yuching Lin, Yuechen Feng<br>
+        The system to be tested is the VT smart parking system. The system would enable the users to buy various types
+        of Parking permits offered and then show the user the nearest spot available based on the category of the users
+        like students and staff and bill the user for the parking.
+        <br>Since this is black box testing, we have based our testing plan on the functionalities and project
+        requirements.
+      </p>
+
+      <h2 class="w3-left-align" id="requirements">Requirements Tested</h2>
+      <p class="w3-left-align">
+        The scope of this test plan will cover all of the functional requirements and some of the non-functional
+        requirements as listed below.
+
+      </p>
+      <h3>Functional Requirements</h3>
+      <ul class="w3-left-align">
+        <li id="fr1">FR-1. The System should provide a login and logout functionality using the Virginia Tech PID and a
+          user-defined password.
+        </li>
+        <li id="fr2">FR-2. The System should be GPS-enabled in order to take in the user’s live location.</li>
+        <li id="fr3">FR-3. The System should suggest available Parking slots using the user’s location in ascending
+          order of distance.</li>
+        <li id="fr4">FR-4. The System should leverage image processing to capture if a certain Parking slot is
+          available. Based on this availability, the System should update the database and also return the same results
+          to the user</li>
+        <li id="fr5">FR-5. The System should allow the user to search for the various Parking lots across campus.
+        </li>
+        <li id="fr6">FR-6. The System should let the user book and pay for the Parking spot using Parking permits.</li>
+        <li id="fr7">FR-7. In case the user does not have an already existing Parking permit, the System should allow
+          the user to buy a fresh Parking permit.</li>
+        <li id="fr8">FR-8. The System should enable the user to enter their details.
+        </li>
+        <li id="fr9">FR-9. The System should display the Parking duration and Parking details.
+        </li>
+        <li id="fr10">FR-10. The System should allow Parking owners to visualize parking patterns.
+          Assumption: It will be a graph with the parking slot locations and times showing the user trend of the parking
+          availability over the last n days.</li>
+        <li id="fr11">FR-11(NFR-5). The application must be able to store the Parking information of the student within
+          the past 90 days. </li>
+      </ul>
+      <p>
+      </p>
+      <h3>Non-Functional Requirements</h3>
+      <ul class="w3-left-align">
+        <li id="nfr1"> NFR-1. The Smart Parking application should be able to run both on Android (version 7 and above)
+          and iOS (version 10 and above).
+        </li>
+        <p class="w3-left-align">
+          It is assumed that the application is responsive with the load time of maximum 5 seconds and response time of
+          maximum 3 seconds. This ensures the users do not have to wait too long and lose interest.
+          The scalability testing is also included which will test application to accommodate maximum (50,000 approx)
+          requests made by the VT students and staff.
+        </p>
+      </ul>
+
+      <h2 class="w3-left-align" id="outofscope">Requirements not tested</h2>
+      <p class="w3-left-align">
+        This test plan will focus on ensuring the system as a whole as well as the individual components function as
+        defined by the requirements. As such, some of the specific details of how the components operate internally will
+        not be tested.
+
+        The following requirements are not specifically targeted by this test plan. Depending on how the tests are
+        implemented and configured it is possible one or more of these requirements will be covered in this plan.
+
+        We will also not be covering the recovery and durability testing ruling out considering the NFR-3 and NFR-4.
+      <ul class="w3-left-align">
+        <li> NFR-2. Any Student data will be encrypted with the required encryption standards.</li>
+        <li> NFR-3. The application must have an uptime of 99.7 percent.</li>
+        <li>NFR-4. The System shall be capable of recovering from an application or System failure, leaving the
+          application and System in an operable state.</li>
+        <li>NFR-6. The Application should address future requirement changes or handle new requirements.</li>
+      </ul>
+    </div>
+
+    <!-- The Test Plan Section -->
+    <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="testplan">
+      <h1>Test Plan</h1>
+      <h3 class="w3-left-align">Plan Overview</h3>
+      <p class="w3-left-align">
+        The test plan has been divided into six phases. Each phase has main objective of testing the functionalities of
+        the system. The phases have been designed in an incremental fashion. The first phase has all the independent
+        functionalities covered which will be used and integrated with the functionalities that will be tested in upcoming
+        phases. The first five phases cover the functional testing and integration testing of the application. The last
+        phase is for the load and performance testing.
+      </p>
+      <h4 class="w3-left-align">Reason to choose this plan:</h4>
+      <p class="w3-left-align">
+        The objective of the testing is to test and evaluate the functionality of the application in an incremental
+        fashion. The division of the phases for the testing we have chosen is based on the logical progression of the
+        functionality development as it would be blackbox testing. So that the testing can start as soon as a
+        functionality is completed and all the independent functionalities as well as the basic functionalities on which
+        the other functionalities are built upon should be completed first. For example, the Parking Trends Service is
+        in phase 5 because it depends on Parking booking services, location services and parking history services. This
+        helps make the testing easy to consider all the necessary cases at once.<br>
+        Below is Table 1.1 depicting all the phases with respective requirements and dependencies.
+      </p>
+      <table class="w3-table w3-bordered">
+        <tr>
+          <th>FR No</th>
+          <td>Features</td>
+          <td>Phase</td>
+          <td>Dependencies</td>
+        </tr>
+        <tr>
+          <th><a href="#fr1">FR 1</a></th>
+          <td>Login Services</td>
+          <td>Phase 1</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th><a href="#fr4">FR 4</a></th>
+          <td>Image Processing</td>
+          <td>Phase 1</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th><a href="#fr2">FR 2</a></th>
+          <td>Location Services</td>
+          <td>Phase 1</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th><a href="#fr8">FR 8</a></th>
+          <td>Profile Service</td>
+          <td>Phase 1</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th><a href="#fr3">FR 3</a></th>
+          <td>Parking slot suggestion service</td>
+          <td>Phase 2</td>
+          <td>Dependent on image processing and location service</td>
+        </tr>
+        <tr>
+          <th><a href="#fr5">FR 5</a></th>
+          <td>Parking slot search service</td>
+          <td>Phase 2</td>
+          <td>Dependent on image processing and location service</td>
+        </tr>
+        <tr>
+          <th><a href="#fr6">FR 6</a></th>
+          <td>Parking Slot Booking Services</td>
+          <td>Phase 3</td>
+          <td>Dependent on parking slot search service</td>
+        </tr>
+        <tr>
+          <th><a href="#fr6">FR 6</a></th>
+          <td>Payment Services (using parking permit)</td>
+          <td>Phase 3</td>
+          <td>Dependent on slot booking services</td>
+        </tr>
+        <tr>
+          <th><a href="#fr7">FR 7</a></th>
+          <td>Buying parking permit service</td>
+          <td>Phase 3</td>
+          <td>Dependent on payment service</td>
+        </tr>
+        <tr>
+          <th><a href="#fr9">FR 9</a></th>
+          <td>Parking details Service</td>
+          <td>Phase 4</td>
+          <td>Dependent on payment and booking services</td>
+        </tr>
+        <tr>
+          <th><a href="#fr5">NFR 5</a></th>
+          <td>Parking history service</td>
+          <td>Phase 4</td>
+          <td>Dependent on payment and booking services</td>
+        </tr>
+        <tr>
+          <th><a href="#fr10">FR 10</a></th>
+          <td>Parking trends service</td>
+          <td>Phase 5</td>
+          <td>Dependent on Parking history service</td>
+        </tr>
+        <tr>
+          <th></th>
+          <td>Performance testing</td>
+          <td>Phase 6</td>
+          <td>Dependent on the full application functional testing completion</td>
+        </tr>
+      </table>
+      <p class="w3-center">Table 1.1 Test Plan of the VT Parking System.</p>
+      <br>
+      <p class="w3-left-align">Fig 1 depicts the phases of the testing and the services and their dependencies. It also
+        implies the integration between the services of the application.</p>
+      <img src="./images/project-2/Dependencies.png" alt="phases of the applications and their dependencies" />
+      <p>Fig 1. Phases of testing and Service Dependencies</p>
+    </div>
+
+    <!-- The Test Scope Section -->
+    <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="testprocedure">
+      <h1>Test Procedure</h1>
+      <div class="w3-left-align">
+        <h4 class="w3-left-align">Phase 1</h4>
+        <h5 class="w3-left-align">Build</h5>
+        <p class="w3-left-align">The build for this phase consists of independent functionalities of the application and
+          they are FR1, FR2, FR4, FR8 and NFR1.</p>
+        <h5 class="w3-left-align">Main Purpose</h5>
+        <p class="w3-left-align">Testing basic independent functions.</p>
+        <h5 class="w3-left-align">Specific test procedure/Test case skeletons:</h5>
+        <ul>
+          <li>Login Service:</li>
+          <table class="w3-table w3-bordered">
+            <tr>
+              <td>Test</td>
+              <td>Goal</td>
+              <td>Procedure</td>
+            </tr>
+            <tr>
+              <td>6.1</td>
+              <td>If a new user, has the option to register</td>
+              <td>Open the application on an android and iOS device, there should be a “register” option which should
+                open a registration page.</td>
+            </tr>
+            <tr>
+              <td>6.2</td>
+              <td>If new user, should register successfully</td>
+              <td>On the registration page, the user should enter the VT PID and set a password and logout and be
+                redirected to the login screen.</td>
+
+            </tr>
+            <tr>
+              <td>6.3</td>
+              <td>The existing user should have the option to login</td>
+              <td>Open the application on an android and iOS device, there should be a signin option with VT PID and
+                password fields.</td>
+
+            </tr>
+            <tr>
+              <td>6.4</td>
+              <td>An existing user, should be able to login successfully with valid password</td>
+              <td>Enter the VT PID and password in the login screen and click on the sign in button, the user should be
+                redirected to the home screen.</td>
+
+            </tr>
+            <tr>
+              <td>6.5</td>
+              <td>A logged-in user should have the option to logout successfully</td>
+              <td>When logged in, after clicking on the Logout button, the user should be able to Logout and redirect to
+                the login screen.</td>
+
+            </tr>
+
+          </table>
+        </ul>
+        <ul>
+          <li>Profile Service:</li>
+          <table class="w3-table w3-bordered">
+            <tr>
+              <th>Test</th>
+              <td>Goal</td>
+              <td>Procedure</td>
+            </tr>
+            <tr>
+              <th>6.1</th>
+              <td>A logged-in user should be able to view the profile details</td>
+              <td>Login to the application, the user should be able to go to the profile page from the home page and be
+                able to see all the profile details except the password.</td>
+            </tr>
+            <tr>
+              <th>6.2</th>
+              <td>A logged-in user should be able to edit and save profile details</td>
+              <td>Login to the application, the user should be able to go to the profile page from the home page and be
+                able to see all the profile details and have the option to update it excerpt the username i.e. VT PID.
+              </td>
+            </tr>
+          </table>
+        </ul>
+        <ul>
+          <li>Image processing Service:</li>
+          <table class="w3-table w3-bordered">
+            <tr>
+              <th>Test</th>
+              <td>Goal</td>
+              <td>Procedure</td>
+            </tr>
+            <tr>
+              <th>1.1</th>
+              <td>Sensor data received/captured</td>
+              <td>Add sensor(s) to the system. Verify that sensors are outputting data.</td>
+            </tr>
+            <tr>
+              <th>1.2</th>
+              <td>Data processed into standard format.</td>
+              <td>Feed the Sensor Data Processor captured data from connected devices. Validate that it is actively
+                converting data to the standardized format.</td>
+            </tr>
+            <tr>
+              <th>1.3</th>
+              <td>Erroneous data removed</td>
+              <td>Feed processed data into the Sensor Data Noise Reducer. Modify the data to include erroneous or null
+                data points. Verify that the invalid data has been removed.</td>
+            </tr>
+            <tr>
+              <th>1.4</th>
+              <td>Cleaned data stored in a local database and sent to the web server and processed.</td>
+              <td>Run data through Sensor Data Noise Reducer. Verify that this triggers the Persistence Module to store
+                the data in the local relational database and POST data to the server and processed.</td>
+            </tr>
+          </table>
+        </ul>
+        <ul>
+          <li>Location Service:</li>
+          <table class="w3-table w3-bordered">
+            <tr>
+              <th>Test</th>
+              <td>Goal</td>
+              <td>Procedure</td>
+            </tr>
+            <tr>
+              <th>1.1</th>
+              <td>The application should be able to take the user's live location.</td>
+              <td>Login to the application, if not already accepted, the user should see a pop up to accept to enable
+                GPS and use it by the application for the other services.</td>
+            </tr>
+          </table>
+        </ul>
+        <h5 class="w3-left-align">Additional Software</h5>
+        <p class="w3-left-align">An important component of the Image processing module is its ability to process data
+          from external sensors. It may prove useful to either mock third-party sensor data or provide a tool that can
+          generate data based on
+          specs from multiple third-party image sensors and GPS location services. Also, an emulator for Android
+          (version 7 and above) and iOS(version 10 and above) would be required to test the functionality on the mobile
+          application.</p>
+
+        <h4 class="w3-left-align" id="phase2">Phase 2</h4>
+        <h5 class="w3-left-align">Build</h5>
+        <p class="w3-left-align">The build for this phase consists of independent functionalities of the application and
+          they are FR3, FR5 and NFR1.</p>
+        <h5 class="w3-left-align">Main Purpose</h5>
+        <p class="w3-left-align">
+          Parking slot services testing.
+        </p>
+        <h5 class="w3-left-align">Specific test procedure/Test case skeletons:</h5>
+        <ul>
+          <li>Parking slot suggestion service:</li>
+          <table class="w3-table w3-bordered">
+            <tr>
+              <th>Test</th>
+              <td>Goal</td>
+              <td>Procedure</td>
+            </tr>
+            <tr>
+              <th>2.1</th>
+              <td>Users should be able to see the available parking slots representation on maps</td>
+              <td>System should get the list of available slots from the database and represent it on the map.</td>
+            </tr>
+            <tr>
+              <th>2.2</th>
+              <td>System should be able to suggest available parking slots within 1 mile radius of the location and
+                availability of the slots at present</td>
+              <td>System should get the list of available slots within 1 mile radius of the given location from the
+                database and represent it on the map.</td>
+            </tr>
+          </table>
+        </ul>
+        <ul>
+          <li>Parking slot search service:</li>
+          <table class="w3-table w3-bordered">
+            <tr>
+              <th>Test</th>
+              <td>Goal</td>
+              <td>Procedure -Raghavi</td>
+            </tr>
+            <tr>
+              <th>2.1</th>
+              <td>Users should be able to locate themselves.</td>
+              <td>System should get the current location from location services and represent it on the map.</td>
+            </tr>
+            <tr>
+              <th>2.2</th>
+              <td>Users should be able to enter the location name to search</td>
+              <td>There should be a text field in the map to enter the location.</td>
+            </tr>
+            <tr>
+              <th>2.3</th>
+              <td>Users should be able to add a criteria of time slot to search the parking slot.</td>
+              <td>There should be a field adjust the time for which the user is looking for the slot booking</td>
+            </tr>
+            <tr>
+              <th>2.4</th>
+              <td>Users should be able to find the parking slots location represented on the map</td>
+              <td>The system should be able to get a list of parking slot locations within 1 mile radius of the searched
+                location.</td>
+            </tr>
+          </table>
+        </ul>
+        <h5 class="w3-left-align">Additional Software</h5>
+        <p class="w3-left-align">
+          An essential component of the Parking slot service module is its ability to show the locations on the
+          graphical view or map view. Third-party services like Gmaps or apple maps can be used to show these locations.
+          This module will also need to mock the location data that in the practical scenario is generated by the mobile
+          hardware. Also, an emulator for Android (version 7 and above) and iOS(version 10 and above) would be required
+          to test the functionality on the mobile application.
+        </p>
+
+        <h4 class="w3-left-align" id="phase3">Phase 3</h4>
+        <h5 class="w3-left-align">Build</h5>
+        <p class="w3-left-align">The build for this phase consists of independent functionalities of the application and
+          they are FR6, FR7 and NFR1.</p>
+        <h5 class="w3-left-align">Main Purpose</h5>
+        <p class="w3-left-align">
+          To book and pay for the parking spot by using parking permits.
+        </p>
+        <h5 class="w3-left-align">Specific test procedure/Test case skeletons:</h5>
+        <ul>
+          <li>Parking Slot Booking Services</li>
+          <table class="w3-table w3-bordered">
+            <tr>
+              <th>Test</th>
+              <td>Goal</td>
+              <td>Procedure</td>
+            </tr>
+            <tr>
+              <th>3.1</th>
+              <td>Users can view parking spaces that are available for a particular booking period.</td>
+              <td>By providing their specific booking time slots and parking lot, users could view the available parking
+                slot according to the results of the Parking slot search service tested in Phase 2.</td>
+            </tr>
+            <tr>
+              <th>3.2</th>
+              <td>Users should set information for submitting a reservation order.</td>
+              <td>Including choosing a preferred parking slot and input the license plate number to ensure that one
+                parking space in a period of time is only used by one user car.</td>
+            </tr>
+            <tr>
+              <th>3.3</th>
+              <td>Users should be able to view/check booking orders.</td>
+              <td>Users are able to view their submitted history and future orders.</td>
+            </tr>
+            <tr>
+              <th>3.4</th>
+              <td>Users should be able to cancel booking orders.</td>
+              <td>Users are able to cancel the order if they no longer require the parking service.</td>
+            </tr>
+            <tr>
+              <th>3.5</th>
+              <td>Release booked parking slot if user does not check-in after 20 mins from book start time.</td>
+              <td>If the user does not check-in within 20 minutes of the scheduled start time, the system should release
+                the reserved parking space for other users to book in order to maximize benefit.</td>
+            </tr>
+            <tr>
+              <th>3.6</th>
+              <td>Update booking check-in and check-out</td>
+              <td>System should be able to update each user’s check-in and check-out through sensors and orders to track
+                the parking lot occupancy.</td>
+            </tr>
+          </table>
+        </ul>
+        <ul>
+          <li>Payment Services</li>
+          <table class="w3-table w3-bordered">
+            <tr>
+              <th>Test</th>
+              <td>Goal</td>
+              <td>Procedure</td>
+            </tr>
+            <tr>
+              <th>3.1</th>
+              <td>Payment detail and parking fee should be show on the booking page</td>
+              <td>System should calculate the total order fee for the user. Booking page should list the payment details
+                including the booking hours, order total fee, license plate number, packing lot name etc order details
+                in the booking page for the user to review and check.</td>
+            </tr>
+            <tr>
+              <th>3.2</th>
+              <td>Users are able to pay the parking fee using parking permits</td>
+              <td>Users need to pay their parking fee by using parking permits. Parking permit should have enough
+                deposit money in it.</td>
+            </tr>
+            <tr>
+              <th>3.3</th>
+              <td>Refund fee if user do not check-in</td>
+              <td>If the user does not check-in but already pays the parking fee, the system should refund the fee back
+                to the user directly.</td>
+            </tr>
+            <tr>
+              <th>3.4</th>
+              <td>Guide back to parking permit service.Page if deposit money is not enough.</td>
+              <td>If the remaining deposit money in the parking permit is less than the current parking fee, system
+                should show message to remind user and guide user to parking permit service page.</td>
+            </tr>
+            <tr>
+              <th>3.5</th>
+              <td>Guide back to parking permit service.Page if user do not have a parking permit</td>
+              <td>If the user do not have a parking permit yet, system should show message to remind user and guide user
+                to parking permit service page.</td>
+            </tr>
+          </table>
+        </ul>
+        <ul>
+          <li>Buying parking permit service</li>
+          <table class="w3-table w3-bordered">
+            <tr>
+              <th>Test</th>
+              <td>Goal</td>
+              <td>Procedure</td>
+            </tr>
+            <tr>
+              <th>3.1</th>
+              <td>A logged-in user should be able to buy a parking permit</td>
+              <td>One user is assumed to have one parking permit to book a parking slot. If the user does not have one,
+                they should buy one on the parking permit service page.</td>
+            </tr>
+            <tr>
+              <th>3.2</th>
+              <td>Users can deposit money in parking permit</td>
+              <td>If a user has a parking permit, they can deposit money in it by debit card or credit card.</td>
+            </tr>
+            <tr>
+              <th>3.3</th>
+              <td>Validate the debit card or credit card when buying a parking permit and deposit money.</td>
+              <td>Verify payment success or failure.</td>
+            </tr>
+          </table>
+        </ul>
+        <h5 class="w3-left-align">Additional Software</h5>
+        <p class="w3-left-align">In this module, the tests are relying on mocking the data that originally is received
+          from the payment
+          gateway like success, failure, or timeout conditions. Also, an emulator for Android (version 7 and above) and
+          iOS(version 10 and above) would be required to test the functionality on the mobile application.
+        </p>
+
+        <h4 class="w3-left-align" id="phase4">Phase 4</h4>
+        <h5 class="w3-left-align">Build</h5>
+        <p class="w3-left-align">The build for this phase consists of independent functionalities of the application and
+          they are FR9, NFR1 and NFR5.</p>
+        <h5 class="w3-left-align">Main Purpose</h5>
+        <p class="w3-left-align">
+          To get one’s parking details and past parking history.
+        </p>
+        <h5 class="w3-left-align">Specific test procedure/Test case skeletons:</h5>
+        <ul>
+          <li>Parking details Service</li>
+          <table class="w3-table w3-bordered">
+            <tr>
+              <th>Test</th>
+              <td>Goal</td>
+              <td>Procedure</td>
+            </tr>
+            <tr>
+              <th>4.1</th>
+              <td>Users can find their booking time, slot location, booking role, and other booking details</td>
+              <td>The parking detail should show enough parking details on page</td>
+            </tr>
+            <tr>
+              <th>4.2</th>
+              <td>User can delete or archive the parking detail</td>
+              <td>There should be a button for the user to remove or archive the current detail data</td>
+            </tr>
+          </table>
+        </ul>
+        <ul>
+          <li>Parking history service</li>
+          <table class="w3-table w3-bordered">
+            <tr>
+              <th>Test</th>
+              <td>Goal</td>
+              <td>Procedure</td>
+            </tr>
+            <tr>
+              <th>4.1</th>
+              <td>Users can search the history parking details based on different keywords</td>
+              <td>There should be a search bar for users. Users can input the search bar and press the search button.
+              </td>
+            </tr>
+            <tr>
+              <th>4.2</th>
+              <td>Users can remove their history by single or deleting all</td>
+              <td>There should be buttons for removing a single history record or deleting all. Users could press that
+                button to update the data.</td>
+            </tr>
+            <tr>
+              <th>4.3</th>
+              <td>User can browse their history records</td>
+              <td>There should be a list for the user to browse after searching by scrolling up and down.</td>
+            </tr>
+          </table>
+        </ul>
+        <p>Additional Software</p>
+        <p>An emulator for Android (version 7 and above) and iOS(version 10 and above) would be required to test the
+          functionality on the mobile application.
+        </p>
+
+        <h4 class="w3-left-align" id="phase5">Phase 5</h4>
+        <h5 class="w3-left-align">Build</h5>
+        <p class="w3-left-align">The build for this phase consists of independent functionalities of the application and
+          they are FR10 and NFR1.</p>
+        <h5 class="w3-left-align">Main Purpose</h5>
+        <p class="w3-left-align">
+          To get the parking slot trends to check for the free slots based on the parking history.
+        </p>
+        <h5 class="w3-left-align">Specific test procedure/Test case skeletons:</h5>
+        <ul>
+          <li>Parking trends service</li>
+          <table class="w3-table w3-bordered">
+            <tr>
+              <th>Test</th>
+              <td>Goal</td>
+              <td>Procedure</td>
+            </tr>
+            <tr>
+              <th>5.1</th>
+              <td>System could display the number of days’ parking trends</td>
+              <td>After logging into the application and going to the home page, users could see the parking trends on
+                the graph.</td>
+            </tr>
+            <tr>
+              <th>5.2</th>
+              <td>Users could select the number of days to see the parking trends</td>
+              <td>Users could select the drop-down button and choose the number of days to check different parking trend
+                graph</td>
+            </tr>
+          </table>
+        </ul>
+        <h5 class="w3-left-align">Additional Software</h5>
+        <p class="w3-left-align">An emulator for Android (version 7 and above) and iOS(version 10 and above) would be
+          required to test the
+          functionality on the mobile application.
+        </p>
+
+        <h4 class="w3-left-align" id="phase6">Phase 6</h4>
+        <h5 class="w3-left-align">Main purpose</h5>
+        <p class="w3-left-align">
+          To check if the application has load time of maximum 5
+          seconds and response time of maximum 3 seconds. The scalability testing is also included which will test
+          application to accommodate maximum (50,000
+          approx) requests made by the VT students and staff.
+        </p>
+        <table class="w3-table w3-bordered">
+          <tr>
+            <th>Test</th>
+            <td>Goal</td>
+            <td>Procedure</td>
+          </tr>
+          <tr>
+            <th>6.1</th>
+            <td>Login Page</td>
+            <td>Check the response time for getting to the login page with multiple load hits to check the performance.
+            </td>
+          </tr>
+          <tr>
+            <th>6.2</th>
+            <td>Home Page</td>
+            <td>Check the response time for getting to the home page with multiple load hits to check the performance
+              after login.</td>
+          </tr>
+          <tr>
+            <th>6.3</th>
+            <td>Image Processing</td>
+            <td></td>
+          </tr>
+          <tr>
+            <th>6.4</th>
+            <td>Profile Page</td>
+            <td>Check the response time for getting from the home page to the profile page with multiple load hits to
+              check the performance. Check the response time for getting the response message after the update profile
+              button is clicked.</td>
+          </tr>
+          <tr>
+            <th>6.5</th>
+            <td>Parking Slot Booking Services</td>
+            <td>Check the response time and ensure the correctness when multiple user booking the parking slot at the
+              same time</td>
+          </tr>
+          <tr>
+            <th>6.6</th>
+            <td>Payment Services (using parking permit)</td>
+            <td>Check the response time when payment services have high user loads.</td>
+          </tr>
+          <tr>
+            <th>6.7</th>
+            <td>Buying parking permit service</td>
+            <td>Check the response time for validating the payment success or failure.</td>
+          </tr>
+          <tr>
+            <th>6.8</th>
+            <td>Parking Detail Page</td>
+            <td>Check the loading time of parking details pages when there exists high user loads</td>
+          </tr>
+          <tr>
+            <th>6.9</th>
+            <td>Parking History Page</td>
+            <td>Check the loading time when the history record is initialized. Check the response time when doing the
+              search function with high user loads</td>
+          </tr>
+          <tr>
+            <th>6.10</th>
+            <td>Parking Trend Page</td>
+            <td>Check the loading time when the parking trend graph is initialized. Check the response time when
+              selecting different number of days with high user loads</td>
+          </tr>
+          <tr>
+            <th>6.11</th>
+            <td>Registration Page</td>
+            <td>Check the response time when doing the registration activity with high user loads</td>
+          </tr>
+        </table>
+        <h5 class="w3-left-align">Additional Software</h5>
+        <p class="w3-left-align">An emulator for Android (version 7 and above) and iOS(version 10 and above),
+          performance measuring tools such
+          as JMeter, and automation scripts would be required to do the performance testing.
+        </p>
+      </div>
+    </div>
+
+
+
+    <!-- The Test Scope Section -->
+    <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="validationtests">
+      <h1 id="testcases" class="w3-center">Validation Tests</h1>
+      <p class="w3-left-align">
+        Once all the test phases are completed successfully, the final product needs to verified and validated against
+        the original requirements mentioned. For that, we have created the below 56 test cases which can be used to
+        complete
+        the validation testing. With the help of <a href="#traceabilitymatrix">Traceability Matrix Table 1.2</a>, we can
+        ensure the final product meets all the customer requirements.
+      </p>
+      <h4>Test Case 1:</h4>
+      <ul>
+        <li>Test the sanity of the login page on iOS devices( version 10 and above).</li>
+        <ul>
+          <li>Open the application on an iOS device.</li>
+          <li>If one is not already logged in, we should land on the login page.</li>
+          <li>Expectation: The login page should contain the following elements:</li>
+          <ul>
+            <li>Text box for username - should allow only characters and blah</li>
+            <li>Text box for password -</li>
+            <li>Clickable Button for login</li>
+          </ul>
+        </ul>
+      </ul>
+      <h4>Test Case 2:</h4>
+      <ul>
+        <li>Test the sanity of the login page on android devices( version 17 and above).</li>
+        <ul>
+          <li>Open the application on an android device.</li>
+          <li>If one is not already logged in, we should land on the login page.</li>
+          <li>Expectation: The login page should contain the following elements:</li>
+          <ul>
+            <li>Text box for username - should allow only characters and blah</li>
+            <li>Text box for password -</li>
+            <li>Clickable Button for login</li>
+          </ul>
+        </ul>
+      </ul>
+      <h4>Test Case 3:</h4>
+      <ul>
+        <li>Test user login with a valid PID as username and password on iOS devices( version 10 and above).</li>
+        <ul>
+          <li>Open the application on an iOS device.</li>
+          <li>If one is not already logged in, we should land on the login page.</li>
+          <li>Enter valid PID and password in the respective text box fields and click on login.</li>
+          <li>Expectation: The user should land on the homepage.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 4:</h4>
+      <ul>
+        <li>Test user login with a valid PID as username and password on all Android devices(version 7 and above).</li>
+        <ul>
+          <li>Open the application on an android device.</li>
+          <li>If one is not already logged in, we should land on the login page.</li>
+          <li>Enter valid PID and password in the respective text box fields and click on login.</li>
+          <li>Expectation: The user should land on the homepage.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 5:</h4>
+      <ul>
+        <li>Test user login with an invalid PID as username on iOS devices( version 10 and above).</li>
+        <ul>
+          <li>Open the application on an iOS device.</li>
+          <li>If one is not already logged in, we should land on the login page.</li>
+          <li>Enter invalid PID and a valid password in the respective text box fields and click on login.</li>
+          <li>Expectation: The user should be prompted with error indication and not able to login.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 6:</h4>
+      <ul>
+        <li>Test user login with an invalid PID as username on android devices( version 7 and above).</li>
+        <ul>
+          <li>Open the application on an android device.</li>
+          <li>If one is not already logged in, we should land on the login page.</li>
+          <li>Enter invalid PID and a valid password in the respective text box fields and click on login.</li>
+          <li>Expectation: The user should be prompted with error indication and not able to login.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 7:</h4>
+      <ul>
+        <li>Test the sanity of the registration link on the login page on iOS devices( version 10 and above).</li>
+        <ul>
+          <li>Open the application on an iOS device.</li>
+          <li>If one is not already logged in, we should land on the login page.</li>
+          <li>Expectation: There should be a ‘register now’ clickable link.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 8:</h4>
+      <ul>
+        <li>Test the sanity of the registration link on the login page on android devices( version 7 and above).</li>
+        <ul>
+          <li>Open the application on an android device.</li>
+          <li>If one is not already logged in, we should land on the login page.</li>
+          <li>Expectation: There should be a ‘register now’ clickable link.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 9:</h4>
+      <ul>
+        <li>Test the sanity of the registration page on iOS devices( version 10 and above).</li>
+        <ul>
+          <li>Open the application on an iOS device.</li>
+          <li>If one is not already logged in, we should land on the login page.</li>
+          <li>Click on the ‘register now’ link.</li>
+          <li>Expectation: User should land to registration page with the following elements:</li>
+          <ul>
+            <li>Text box for entering username - should allow only valid VT PIDs</li>
+            <li>Text box for password - with hidden value and a regex</li>
+            <li id="tc10">Text box for confirm password - with hidden value</li>
+            <li>Clickable Button for Registration</li>
+          </ul>
+        </ul>
+      </ul>
+
+      <h4>Test Case 10:</h4>
+      <ul>
+        <li>Test the sanity of the registration page on android devices( version 7 and above).</li>
+        <ul>
+          <li>Open the application on an android device.</li>
+          <li>If one is not already logged in, we should land on the login page.</li>
+          <li>Click on the ‘register now’ link.</li>
+          <li>Expectation: User should land to registration page with the following elements:</li>
+          <ul>
+            <li>Text box for entering username - should allow only valid VT PIDs</li>
+            <li>Text box for password - with hidden value and a regex</li>
+            <li>Text box for confirm password - with hidden value</li>
+            <li>Clickable Button for Registration</li>
+          </ul>
+        </ul>
+      </ul>
+      <h4>Test Case 11:</h4>
+      <ul>
+        <li>Test user registration with a valid PID as username and password on iOS devices( version 10 and above).</li>
+        <ul>
+          <li>Open the application on an iOS device.</li>
+          <li>If one is not already logged in, we should land on the login page.</li>
+          <li>Click on the ‘register now’ link and the registration page should open.</li>
+          <li>Enter a valid username as VT PID and set all the mandatory fields correctly.</li>
+          <li>Expectation: The user should be able to register successfully and be redirected to the login screen with a
+            success message.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 12:</h4>
+      <ul>
+        <li>Test user registration with a valid PID as username and password on android devices( version 7 and above).
+        </li>
+        <ul>
+          <li>Open the application on an android device.</li>
+          <li>If one is not already logged in, we should land on the login page.</li>
+          <li>Click on the ‘register now’ link and the registration page should open.</li>
+          <li>Enter a valid username as VT PID and set all the mandatory fields correctly.</li>
+          <li>Expectation: The user should be able to register successfully and be redirected to the login screen with a
+            success message.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 13:</h4>
+      <ul>
+        <li>Test user registration with an invalid PID as username on iOS devices( version 10 and above).</li>
+        <ul>
+          <li>Open the application on an iOS device.</li>
+          <li>If one is not already logged in, we should land on the login page.</li>
+          <li>Click on the ‘register now’ link and the registration page should open.</li>
+          <li>Enter a invalid username as VT PID and set all the other mandatory fields correctly.</li>
+          <li>Expectation: The user should not be able to register and be prompted with a failure message.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 14:</h4>
+      <ul>
+        <li>Test user registration with an invalid PID as username on android devices( version 7 and above).</li>
+        <ul>
+          <li>Open the application on an android device.</li>
+          <li>If one is not already logged in, we should land on the login page.</li>
+          <li>Click on the ‘register now’ link and the registration page should open.</li>
+          <li>Enter a invalid username as VT PID and set all the other mandatory fields correctly.</li>
+          <li>Expectation: The user should not be able to register and be prompted with a failure message.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 15:</h4>
+      <ul>
+        <li>Test user registration with a valid PID as username and invalid password on iOS devices( version 10 and
+          above).</li>
+        <ul>
+          <li>Open the application on an iOS device.</li>
+          <li>If one is not already logged in, we should land on the login page.</li>
+          <li>Click on the ‘register now’ link and the registration page should open.</li>
+          <li>Enter a valid username as VT PID and set all the other mandatory fields correctly except the password
+            regex.</li>
+          <li>Expectation: The user should not be able to register and be prompted with a failure message</li>
+        </ul>
+      </ul>
+      <h4>Test Case 16:</h4>
+      <ul>
+        <li>Test user registration with a valid PID as username and invalid password on android devices( version 7 and
+          above).</li>
+        <ul>
+          <li>Open the application on an android device.</li>
+          <li>If one is not already logged in, we should land on the login page.</li>
+          <li>Click on the ‘register now’ link and the registration page should open.</li>
+          <li>Enter a valid username as VT PID and set all the other mandatory fields correctly except the password
+            regex.</li>
+          <li>Expectation: The user should not be able to register and be prompted with a failure message</li>
+        </ul>
+      </ul>
+      <h4>Test Case 17:</h4>
+      <ul>
+        <li>Test location service with GPS enabled on iOS devices( version 10 and above).</li>
+        <ul>
+          <li>Open the application on an iOS device.</li>
+          <li>Login with valid credentials.</li>
+          <li>On the Home page, you should be prompted to allow use of GPS, accept it.</li>
+          <li>Expectation: The current user location should be taken up in the application.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 18:</h4>
+      <ul>
+        <li>Test location service with GPS enabled on android devices( version 7 and above).</li>
+        <ul>
+          <li>Open the application on an android device.</li>
+          <li>Login with valid credentials.</li>
+          <li>On the Home page, you should be prompted to allow use of GPS, accept it.</li>
+          <li>Expectation: The current user location should be taken up in the application.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 19:</h4>
+      <ul>
+        <li>Test location service with GPS disabled on iOS devices( version 10 and above).</li>
+        <ul>
+          <li>Open the application on an iOS device.</li>
+          <li>Login with valid credentials.</li>
+          <li id="tc20">On the Home page, you should be prompted to allow use of GPS, accept it.</li>
+          <li>Expectation: The application should display a prompt that the GPS is disabled and needs to be turned on.
+          </li>
+        </ul>
+      </ul>
+      <h4>Test Case 20:</h4>
+      <ul>
+        <li>Test location service with GPS disabled on android devices( version 7 and above).</li>
+        <ul>
+          <li>Open the application on an android device.</li>
+          <li>Login with valid credentials.</li>
+          <li>On the Home page, you should be prompted to allow use of GPS, accept it.</li>
+          <li>Expectation: The application should display a prompt that the GPS is disabled and needs to be turned on.
+          </li>
+        </ul>
+      </ul>
+      <h4>Test Case 21:</h4>
+      <ul>
+        <li>Profile page link sanity on iOS devices( version 10 and above).</li>
+        <ul>
+          <li>Open the application on an iOS device.</li>
+          <li>Login with valid credentials.</li>
+          <li>Expectation: On the Home page, there should be a link to the Profile page.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 22:</h4>
+      <ul>
+        <li>Profile page link sanity on android devices( version 7 and above).</li>
+        <ul>
+          <li>Open the application on an android device.</li>
+          <li>Login with valid credentials.</li>
+          <li>Expectation: On the Home page, there should be a link to the Profile page.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 23:</h4>
+      <ul>
+        <li>Profile page sanity on iOS devices( version 10 and above).</li>
+        <ul>
+          <li>Open the application on an iOS device.</li>
+          <li>Login with valid credentials.</li>
+          <li>From Home Page, GOTO Profile Page</li>
+          <li>Expectation: User should land to profile page with the following elements:</li>
+          <ul>
+            <li>Text box with disabled username having the PID - not editable</li>
+            <li>Enabled Text box for updating password - with hidden value and a regex</li>
+            <li>Enabled Text box for confirm password - with hidden value</li>
+            <li>Other editable fields such as name, etc.</li>
+            <li>A clickable Update button</li>
+          </ul>
+        </ul>
+      </ul>
+      <h4>Test Case 24:</h4>
+      <ul>
+        <li>Profile page sanity on android devices( version 7 and above).</li>
+        <ul>
+          <li>Open the application on an android device.</li>
+          <li>Login with valid credentials.</li>
+          <li>From Home Page, GOTO Profile Page</li>
+          <li>Expectation: User should land to profile page with the following elements:</li>
+          <ul>
+            <li>Text box with disabled username having the PID - not editable</li>
+            <li>Enabled Text box for updating password - with hidden value and a regex</li>
+            <li>Enabled Text box for confirm password - with hidden value</li>
+            <li>Other editable fields such as name, etc.</li>
+            <li>A clickable Update button</li>
+          </ul>
+        </ul>
+      </ul>
+      <h4>Test Case 25:</h4>
+      <ul>
+        <li>The user should be able to add/update the details on the Profile page on iOS devices( version 10 and above).
+        </li>
+        <ul>
+          <li>Open the application on an iOS device.</li>
+          <li>Login with valid credentials.</li>
+          <li>From Home Page, GOTO Profile Page</li>
+          <li>User should land to profile page</li>
+          <li>Update the following elements:</li>
+          <ul>
+            <li>Enabled Text box for updating password - with hidden value and a regex</li>
+            <li>Enabled Text box for confirm password - with hidden value</li>
+            <li>Other editable fields such as name, etc.</li>
+          </ul>
+          <li>Click on Update</li>
+          <li>Expectation: The profile details should be updated successfully with a success message.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 26:</h4>
+      <ul>
+        <li>The user should be able to add/update the details on the Profile page on android devices( version 7 and
+          above).</li>
+        <ul>
+          <li>Open the application on an android device.</li>
+          <li>Login with valid credentials.</li>
+          <li>From Home Page, GOTO Profile Page</li>
+          <li>User should land to profile page</li>
+          <li>Update the following elements:</li>
+          <ul>
+            <li>Enabled Text box for updating password - with hidden value and a regex</li>
+            <li>Enabled Text box for confirm password - with hidden value</li>
+            <li>Other editable fields such as name, etc.</li>
+          </ul>
+          <li>Click on Update</li>
+          <li>Expectation: The profile details should be updated successfully with a success message.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 27:</h4>
+      <ul>
+        <li>The user should not be able to add/update the password details with invalid password regex on the Profile
+          page on iOS devices( version 10 and above).</li>
+        <ul>
+          <li>Open the application on an iOS device.</li>
+          <li>Login with valid credentials.</li>
+          <li>From Home Page, GOTO Profile Page</li>
+          <li>User should land to profile page</li>
+          <li>Update the following elements:</li>
+          <ul>
+            <li>Enter new password with invalid regex</li>
+            <li>Enter same password in confirm password field</li>
+          </ul>
+          <li>Click on Update</li>
+          <li>Expectation: The password details should not be updated successfully with a failure message.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 28:</h4>
+      <ul>
+        <li>The user should not be able to add/update the password details with invalid password regex on the Profile
+          page on android devices( version 7 and above).</li>
+        <ul>
+          <li>Open the application on an android device.</li>
+          <li>Login with valid credentials.</li>
+          <li>From Home Page, GOTO Profile Page</li>
+          <li>User should land to profile page</li>
+          <li>Update the following elements:</li>
+          <ul>
+            <li>Enter new password with invalid regex</li>
+            <li>Enter same password in confirm password field</li>
+          </ul>
+          <li>Click on Update</li>
+          <li>Expectation: The password details should not be updated successfully with a failure message.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 29:</h4>
+      <ul>
+        <li>Test whether the application processes images to capture the presence of a vehicle in the parking slot.</li>
+        <ul>
+          <li>Assumption: Images for an X parking slot are being mimicked.</li>
+          <li>The image is received by the image processing module.</li>
+          <li id="tc30">The image contains a vehicle in the parking spot.</li>
+          <li>Expectation: The module should update the database with the occupied status of the parking slot.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 30:</h4>
+      <ul>
+        <li>Test whether the application processes images to capture the absence of the vehicle in the parking slot.
+        </li>
+        <ul>
+          <li>Assumption: Images for an X parking slot are being mimicked.</li>
+          <li>The image is received by the image processing module.</li>
+          <li>The image contains no vehicle in the parking spot.</li>
+          <li>Expectation: The module should update the database with the empty status of the parking slot.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 31:</h4>
+      <ul>
+        <li>Test whether the application processes an image to capture the absence of the vehicle in the parking slot
+          though there is presence of vehicle in the image.</li>
+        <ul>
+          <li>Assumption: Images for an X parking slot are being mimicked.</li>
+          <li>The image is received by the image processing module.</li>
+          <li>The image contains no vehicle in the parking spot but a vehicle parked in the opposite parking slot.</li>
+          <li>Expectation: The module should update the database with the empty status of the parking slot.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 32:</h4>
+      <ul>
+        <li>Test whether the application processes images to capture the absence of the vehicle in the parking slot
+          though there is presence of other objects.</li>
+        <ul>
+          <li>Assumption: Images for an X parking slot are being mimicked.</li>
+          <li>The image is received by the image processing module.</li>
+          <li>The image contains no vehicle in the parking spot but a person with a pet standing in the parking slot.
+          </li>
+          <li>Expectation: The module should update the database with the empty status of the parking slot.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 33:</h4>
+      <ul>
+        <li>Test user to book parking slot on ios device (version 10 and above) - base on searching test case.</li>
+        <ul>
+          <li>Open the application on an iOS device.</li>
+          <li>Login with valid credentials.</li>
+          <li>From Home Page, goto Booking Page.</li>
+          <li>Users should land to booking page.</li>
+          <li>Users view the available parking slot.</li>
+          <li>Users choose their preferred parking slot.</li>
+          <li>The booking page should contain the following elements:</li>
+          <ul>
+            <li>Text box for user to input license plate number.</li>
+            <li>Details of the chosen parking slot present in a row:</li>
+            <ul>
+              <li>Selected parking lot</li>
+              <li>Selected parking date</li>
+              <li>Selected parking time duration</li>
+              <li>Selected parking slot</li>
+            </ul>
+            <li>Total amount of parking fee</li>
+            <li>A clickable Payment button</li>
+          </ul>
+          <li>Click on the payment button.</li>
+          <li>Expectation: The module should confirm the booking order and process to pay the parking fee.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 34:</h4>
+      <ul>
+        <li>Test user to book parking slot on android device (version 7 and above) - base on searching test case</li>
+        <ul>
+          <li>Open the application on an android device.</li>
+          <li>Login with valid credentials.</li>
+          <li>From Home Page, goto Booking Page.</li>
+          <li>Users should land to booking page.</li>
+          <li>Users view the available parking slot.</li>
+          <li>Users choose their preferred parking slot.</li>
+          <li>The booking page should contain the following elements:</li>
+          <ul>
+            <li>Text box for user to input license plate number.</li>
+            <li>Details of the chosen parking slot present in a row:</li>
+            <ul>
+              <li>Selected parking lot</li>
+              <li>Selected parking date</li>
+              <li>Selected parking time duration</li>
+              <li>Selected parking slot</li>
+            </ul>
+            <li>Total amount of parking fee</li>
+            <li>A clickable Payment button</li>
+          </ul>
+          <li>Click on the payment button.</li>
+          <li>Expectation: The module should confirm the booking order and process to pay the parking fee.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 35:</h4>
+      <ul>
+        <li>Test user to check/modify order on iOS device (version 10 and above).</li>
+        <ul>
+          <li>Open the application on an iOS device.</li>
+          <li>Login with valid credentials.</li>
+          <li>From Home Page, goto Check order Page.</li>
+          <li>User should land to check order page.</li>
+          <li>User are able to view the booked order.</li>
+          <li>The check order page should contain the following elements:</li>
+          <ul>
+            <li>License plate number</li>
+            <li>Selected parking lot</li>
+            <li>Selected parking date</li>
+            <li>Selected parking time duration</li>
+            <li>Selected parking slot</li>
+            <li>Total amount of parking fee</li>
+            <li>Back button - to land back to home page</li>
+            <li>Cancel button - cancel the order and land back to home page</li>
+          </ul>
+          <li>Expectation: Redirect user back to the home page if click on the back button or cancel the order and
+            redirect user back to the home page if click on the cancel button</li>
+        </ul>
+      </ul>
+      <h4>Test Case 36:</h4>
+      <ul>
+        <li>Test logged-in user to check/modify order on android device (version 7 and above).</li>
+        <ul>
+          <li>Open the application on an android device.</li>
+          <li>Login with valid credentials.</li>
+          <li>From Home Page, goto Check order Page.</li>
+          <li>User should land to check order page.</li>
+          <li>User are able to view the booked order.</li>
+          <li>The check order page should contain the following elements:</li>
+          <ul>
+            <li>License plate number</li>
+            <li>Selected parking lot</li>
+            <li>Selected parking date</li>
+            <li>Selected parking time duration</li>
+            <li>Selected parking slot</li>
+            <li>Total amount of parking fee</li>
+            <li>Back button - to land back to home page</li>
+            <li>Cancel button - cancel the order and land back to home page</li>
+          </ul>
+          <li>Expectation: Redirect user back to the home page if click on the back button or cancel the order and
+            redirect user back to the home page if click on the cancel button</li>
+        </ul>
+      </ul>
+      <h4>Test Case 37:</h4>
+      <ul>
+        <li>Test user does have a parking permit and has enough money in it when booking orders on an ios device
+          (version 10 and above).</li>
+        <ul>
+          <li>Booking parking slot on an iOS device.</li>
+          <li>User should already have a parking permit.</li>
+          <li>Click on the payment button on Booking page - base on test case 33.</li>
+          <li>From Booking Page, goto Payment Page.</li>
+          <li>User have enough deposit money in parking permit to pay the current parking fee.</li>
+          <li>Expectation: User pay the parking with parking permit successfully.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 38:</h4>
+      <ul>
+        <li>Test user does have a parking permit and has enough money in it when booking orders on an android device
+          (version 7 and above).</li>
+        <ul>
+          <li>Booking parking slot on an android device.</li>
+          <li>User should already have a parking permit.</li>
+          <li>Click on the payment button on Booking page - base on test case 33.</li>
+          <li>From Booking Page, goto Payment Page.</li>
+          <li>User have enough deposit money in parking permit to pay the current parking fee.</li>
+          <li>Expectation: User pay the parking with parking permit successfully.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 39:</h4>
+      <ul>
+        <li>Test user does have a parking permit but does not have enough money in it when booking an order on an ios
+          device (version 10 and above).</li>
+        <ul>
+          <li>Booking parking slot on an iOS device.</li>
+          <li>User should already have a parking permit.</li>
+          <li>Click on the payment button on Booking page - base on test case 33.</li>
+          <li>From Booking Page, goto Payment Page.</li>
+          <li>User does not have enough deposit money in parking permit to pay the current parking fee.</li>
+          <li id="tc40">Expectation: User fails to pay the parking with a parking permit and should be prompted with a
+            ‘not have enough money in parking permit’ message.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 40:</h4>
+      <ul>
+        <li>Test user does have a parking permit but does not have enough money in it when booking an order on an
+          android device (version 7 and above).</li>
+        <ul>
+          <li>Booking parking slot on an android device.</li>
+          <li>User should already have a parking permit.</li>
+          <li>Click on the payment button on Booking page - base on test case 33.</li>
+          <li>From Booking Page, goto Payment Page.</li>
+          <li>User does not have enough deposit money in parking permit to pay the current parking fee.</li>
+          <li>Expectation: User fails to pay the parking with a parking permit and should be prompted with a ‘not have
+            enough money in parking permit’ message.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 41:</h4>
+      <ul>
+        <li>Test user does not have a parking permit when booking on an iOS device(version 10 and above).</li>
+        <ul>
+          <li>Booking parking slot on an iOS device.</li>
+          <li>User do not have a parking permit yet.</li>
+          <li>Expectation: Users fail to process the payment page and should be prompted with a ‘not have a parking
+            permit’ message.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 42:</h4>
+      <ul>
+        <li>Test user does not have a parking permit when booking on an android device (version 7 and above).
+        </li>
+        <ul>
+          <li>Booking parking slot on an android device.</li>
+          <li>User do not have a parking permit yet.</li>
+          <li>Expectation: Users fail to process the payment page and should be prompted with a ‘not have a parking
+            permit’ message.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 43:</h4>
+      <ul>
+        <li>Test buying parking permit on an ios device (version 10 and above).</li>
+        <ul>
+          <li>Open the application on an iOS device.</li>
+          <li>Login with valid credentials.</li>
+          <li>From Home Page, goto Parking Permit Page.</li>
+          <li>User should land to parking permit page.</li>
+          <li>User should not have a parking permit yet.</li>
+          <li>The parking permit page should show:</li>
+          <ul>
+            <li>A message that the user does not have one.</li>
+            <li>A clickable buy parking permit button.</li>
+          </ul>
+          <li>Click on the buy parking permit page to purchase the parking permit and should show:</li>
+          <ul>
+            <li>Text box to input user name</li>
+            <li>Text box to input license plate number</li>
+            <li>Drop down menu to choose user type - Faculty or Student</li>
+            <li>Confirm and payment button</li>
+          </ul>
+          <li>Expectation: After buying parking permit, the parking permit page should contain the following elements:
+          </li>
+          <ul>
+            <li>Massage that the user does have a parking permit</li>
+            <li>User name</li>
+            <li>User type - Faculty or Student</li>
+            <li>Issued date</li>
+            <li>Expiry date</li>
+            <li>License plate number</li>
+            <li>Deposit money amount in parking permit</li>
+          </ul>
+        </ul>
+      </ul>
+      <h4>Test Case 44:</h4>
+      <ul>
+        <li>Test buying parking permit on an android device (version 7 and above).</li>
+        <ul>
+          <li>Open the application on an android device.</li>
+          <li>Login with valid credentials.</li>
+          <li>From Home Page, goto Parking Permit Page.</li>
+          <li>User should land to parking permit page.</li>
+          <li>User should not have a parking permit yet.</li>
+          <li>The parking permit page should show:</li>
+          <ul>
+            <li>A message that the user does not have one.</li>
+            <li>A clickable buy parking permit button.</li>
+          </ul>
+          <li>Click on the buy parking permit page to purchase the parking permit and should show:</li>
+          <ul>
+            <li>Text box to input user name</li>
+            <li>Text box to input license plate number</li>
+            <li>Drop down menu to choose user type - Faculty or Student</li>
+            <li>Confirm and payment button</li>
+          </ul>
+          <li>Expectation: After buying parking permit, the parking permit page should contain the following elements:
+          </li>
+          <ul>
+            <li>Massage that the user does have a parking permit</li>
+            <li>User name</li>
+            <li>User type - Faculty or Student</li>
+            <li>Issued date</li>
+            <li>Expiry date</li>
+            <li>License plate number</li>
+            <li>Deposit money amount in parking permit</li>
+          </ul>
+        </ul>
+      </ul>
+      <h4>Test Case 45:</h4>
+      <ul>
+        <li>Test deposit money in parking permit on iOS device (version 10 and above).</li>
+        <ul>
+          <li>Open the application on an iOS device.</li>
+          <li>Login with valid credentials.</li>
+          <li>From Home Page, goto Parking Permit Page.</li>
+          <li>User should land to parking permit page.</li>
+          <li>User should have a parking permit already.</li>
+          <li>The parking permit page should show:</li>
+          <ul>
+            <li>Massage that the user does have a parking permit</li>
+            <li>User name</li>
+            <li>User type - Faculty or Student</li>
+            <li>Issued date</li>
+            <li>Expiry date</li>
+            <li>License plate number</li>
+            <li>Deposit money amount in parking permit</li>
+            <li>A clickable Deposit Money button</li>
+          </ul>
+          <li>Click on the deposit money button to add money into the parking permit</li>
+          <li>Enter the amount that wanted to add and the pay card(debit card or credit card) information:</li>
+          <ul>
+            <li>Amount wanted to add in parking permit - number</li>
+            <li>Card user name</li>
+            <li>Card number</li>
+            <li>Card expiry date</li>
+            <li>Card security code</li>
+          </ul>
+          <li>Wait for payment validation and processing.</li>
+          <li>Expectation: User successfully add desired money in parking permit.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 46:</h4>
+      <ul>
+        <li>Test deposit money in parking permit on android device (version 7 and above).</li>
+        <ul>
+          <li>Open the application on an android device.</li>
+          <li>Login with valid credentials.</li>
+          <li>From Home Page, goto Parking Permit Page.</li>
+          <li>User should land to parking permit page.</li>
+          <li>User should have a parking permit already.</li>
+          <li>The parking permit page should show:</li>
+          <ul>
+            <li>Massage that the user does have a parking permit</li>
+            <li>User name</li>
+            <li>User type - Faculty or Student</li>
+            <li>Issued date</li>
+            <li>Expiry date</li>
+            <li>License plate number</li>
+            <li>Deposit money amount in parking permit</li>
+            <li>A clickable Deposit Money button</li>
+          </ul>
+          <li>Click on the deposit money button to add money into the parking permit</li>
+          <li>Enter the amount that wanted to add and the pay card(debit card or credit card) information:</li>
+          <ul>
+            <li>Amount wanted to add in parking permit - number</li>
+            <li>Card user name</li>
+            <li>Card number</li>
+            <li>Card expiry date</li>
+            <li>Card security code</li>
+          </ul>
+          <li>Wait for payment validation and processing.</li>
+          <li>Expectation: User successfully add desired money in parking permit.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 47:</h4>
+      <ul>
+        <li>Test parking details service on iOS device (version 10 and above).</li>
+        <ul>
+          <li>After the test user login to the menu of the application on iOS device successfully</li>
+          <li>Go to the parking details section and click on one detail element.</li>
+          <li>Expectation: Each element should contain the following elements:</li>
+          <ul>
+            <li>delete button</li>
+            <li>archive button</li>
+            <li>booking time</li>
+            <li>booking role</li>
+            <li>slot location</li>
+            <li>payment information</li>
+          </ul>
+          <li>Press the delete button of one detail element, it should be removed</li>
+          <li>Press the archive button of one detail element, it should be archived</li>
+        </ul>
+      </ul>
+      <h4>Test Case 48:</h4>
+      <ul>
+        <li>Test parking details service on android device (version 7 and above).</li>
+        <ul>
+          <li>After the test user login to the menu of the application on android device successfully</li>
+          <li>Go to the parking details section and click on one detail element.</li>
+          <li>Expectation: Each element should contain the following elements:</li>
+          <ul>
+            <li>delete button</li>
+            <li>archive button</li>
+            <li>booking time</li>
+            <li>booking role</li>
+            <li>slot location</li>
+            <li>payment information</li>
+          </ul>
+          <li>Press the delete button of one detail element, it should be removed</li>
+          <li>Press the archive button of one detail element, it should be archived</li>
+        </ul>
+      </ul>
+      <h4>Test Case 49:</h4>
+      <ul>
+        <li>Test parking history service on iOS device (version 10 and above).</li>
+        <ul>
+          <li>After the test user login to the menu of the application on iOS device successfully</li>
+          <li>Go to the parking history section.</li>
+          <li>Expectation: The history page should contain following elements:</li>
+          <ul>
+            <li>Search Bar</li>
+            <li>Search Button</li>
+            <li>Delete Button</li>
+            <li>DeleteAll Button</li>
+          </ul>
+          <li>User should be able to input some words in the search bar.</li>
+          <li>User should be able to press the search button.</li>
+          <li>After pressing the search button, history containing key words should be displayed in the list.</li>
+          <li id="tc50">After clicking the delete button of one history record, the record should be removed.</li>
+          <li>After clicking the deleteAll button, all history records should be removed.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 50:</h4>
+      <ul>
+        <li>Test parking history service on android device (version 7 and above).</li>
+        <ul>
+          <li>After the test user login to the menu of the application on android device successfully</li>
+          <li>Go to the parking history section.</li>
+          <li>Expectation: The history page should contain following elements:</li>
+          <ul>
+            <li>Search Bar</li>
+            <li>Search Button</li>
+            <li>Delete Button</li>
+            <li>DeleteAll Button</li>
+          </ul>
+          <li>User should be able to input some words in the search bar.</li>
+          <li>User should be able to press the search button.</li>
+          <li>After pressing the search button, history containing key words should be displayed in the list.</li>
+          <li>After clicking the delete button of one history record, the record should be removed.</li>
+          <li>After clicking the deleteAll button, all history records should be removed.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 51:</h4>
+      <ul>
+        <li>Test Parking Trend Service on iOS device (version 10 and above).</li>
+        <ul>
+          <li>After the user successfully login to the iOS application and go to the menu</li>
+          <li>The graph should display the parking trends in some number of days.</li>
+          <li>Expectation: the graph should contain the following elements:</li>
+          <ul>
+            <li>Parking trends in N days</li>
+            <li>Drop down button which can choose the number of days</li>
+          </ul>
+          <li>After pressing the drop down button, the use should be able to select different days of parking trends
+          </li>
+          <li>The parking trends in the graph should be able to match the number in the drop down button.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 52:</h4>
+      <ul>
+        <li>Test Parking Trend Service on android device (version 7 and above).</li>
+        <ul>
+          <li>After the user successfully login to the android application and go to the menu</li>
+          <li>The graph should display the parking trends in some number of days.</li>
+          <li>Expectation: the graph should contain the following elements:</li>
+          <ul>
+            <li>Parking trends in N days</li>
+            <li>Drop down button which can choose the number of days</li>
+          </ul>
+          <li>After pressing the drop down button, the use should be able to select different days of parking trends
+          </li>
+          <li>The parking trends in the graph should be able to match the number in the drop down button.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 53:</h4>
+      <ul>
+        <li>Test whether the application is given the location with an iOS device (version 10 and above).</li>
+        <ul>
+          <li>Navigate to the “book parking slot” page.</li>
+          <li>The page should contain:</li>
+          <ul>
+            <li>A representation of the map with the below details:</li>
+            <ul>
+              <li>Current location: The application should get the current location from location services.</li>
+              <li>Available nearby parking slots in green color: The application should get the data from the list of
+                parking slots managed in the database and represent it on the map.</li>
+            </ul>
+            <li>A text area to enter the location - should allow entering any data.</li>
+            <li>A clickable search button to search the slots near the location entered.</li>
+          </ul>
+        </ul>
+      </ul>
+      <h4>Test Case 54:</h4>
+      <ul>
+        <li>Test whether the application is given the location with an android device (version 7 and above).</li>
+        <ul>
+          <li>Navigate to the “book parking slot” page.</li>
+          <li>The page should contain:</li>
+          <ul>
+            <li>A representation of the map with the below details:</li>
+            <ul>
+              <li>Current location: The application should get the current location from location services.</li>
+              <li>Available nearby parking slots in green color: The application should get the data from the list of
+                parking slots managed in the database and represent it on the map.</li>
+            </ul>
+            <li>A text area to enter the location - should allow entering any data.</li>
+            <li>A clickable search button to search the slots near the location entered.</li>
+          </ul>
+        </ul>
+      </ul>
+      <h4>Test Case 55:</h4>
+      <ul>
+        <li>Test whether the application searches the right available parking slots within 1 mile radius of the given
+          location with an iOS device (version 10 and above).</li>
+        <ul>
+          <li>Navigate to the “book parking slot” page.</li>
+          <li>The page should contain:</li>
+          <ul>
+            <li>A representation of the map with the below details:</li>
+            <ul>
+              <li>Current location: The application should get the current location from location services</li>
+              <li>Available parking slots within 1 mile radius of the given location: The application should get the
+                data from the list of parking slots managed in the database and represent it on the map.</li>
+            </ul>
+            <li>A text area to enter the location - should allow entering any data.</li>
+            <li>A clickable search button to search the slots near the location entered.</li>
+          </ul>
+          <li>When searched for the location, the application should get the data from the list of parking slots managed
+            in the database and represent it on the map with available parking slots.</li>
+        </ul>
+      </ul>
+      <h4>Test Case 56:</h4>
+      <ul>
+        <li>Test whether the application searches the right available parking slots within 1 mile radius of the given
+          location with an android device (version 7 and above).</li>
+        <ul>
+          <li>Navigate to the “book parking slot” page.</li>
+          <li>The page should contain:</li>
+          <ul>
+            <li>A representation of the map with the below details:</li>
+            <ul>
+              <li>Current location: The application should get the current location from location services</li>
+              <li>Available parking slots within 1 mile radius of the given location: The application should get the
+                data from the list of parking slots managed in the database and represent it on the map.</li>
+            </ul>
+            <li>A text area to enter the location - should allow entering any data.</li>
+            <li>A clickable search button to search the slots near the location entered.</li>
+          </ul>
+          <li>When searched for the location, the application should get the data from the list of parking slots managed
+            in the database and represent it on the map with available parking slots.</li>
+        </ul>
+      </ul>
+      <h3 style="padding-top: 64px" id="traceabilitymatrix">Traceability Matrix</h3>
+      <table class="w3-table w3-bordered">
+        <th style="padding: 10px;">Test Case Number</th>
+        <th style="padding: 10px">Requirement ID</th>
+        </th>
+        <tr>
+          <td style="padding: 5px;">1-16</td>
+          <td>FR1, NFR1</td>
+        </tr>
+        <tr>
+          <td style="padding: 5px;">17-20</td>
+          <td>FR2, NFR1</td>
+        </tr>
+        <tr>
+          <td style="padding: 5px;">21-28</td>
+          <td>FR8, NFR1</td>
+        </tr>
+        <tr>
+          <td style="padding: 5px;">29-32</td>
+          <td>FR4, NFR1</td>
+        </tr>
+        <tr>
+          <td style="padding: 5px;">33-42</td>
+          <td>FR6, NFR1</td>
+        </tr>
+        <tr>
+          <td style="padding: 5px;">43-46</td>
+          <td>FR7, NFR1</td>
+        </tr>
+        <tr>
+          <td style="padding: 5px;">47-48</td>
+          <td>FR9, NFR1</td>
+        </tr>
+        <tr>
+          <td style="padding: 5px;">49-50</td>
+          <td>NFR5, NFR1</td>
+        </tr>
+        <tr>
+          <td style="padding: 5px;">51-52</td>
+          <td>FR10, NFR1</td>
+        </tr>
+        <tr>
+          <td style="padding: 5px;">53-54</td>
+          <td>FR3, NFR1</td>
+        </tr>
+        <tr>
+          <td style="padding: 5px;">55-56</td>
+          <td>FR5, NFR1</td>
+        </tr>
+      </table>
+      <p class="w3-center">Table 1.2 Traceability Matrix depicting the test case coverage across the requirements</p>
+
+    </div>
+    <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="conclusion">
+      <h1 id="conclusion" class="w3-center">Conclusion</h1>
+      <p class="w3-left-align">
+        It is important to recognize that it is impossible to cover every possible testing scenario. The strategy
+        outlined in this plan focuses on the functional, integration and performance testing of the VT Parking System.
+        The test plan should evolve as the design of the system evolves and requirements are refined. This test
+        plan provides a solid foundation to begin implementing testing strategies that will contribute to better
+        software quality.
+      </p>
+    </div>
+
+    <!-- End Page Content -->
+  </div>
+
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+    Presented by Swati Lamba, Yuechen Feng, Yuching Lin, Raghavi Vannala.
+    <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+  </footer>
+
+  <script>
+    // Automatic Slideshow - change image every 4 seconds
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      myIndex++;
+      if (myIndex > x.length) { myIndex = 1 }
+      x[myIndex - 1].style.display = "block";
+      setTimeout(carousel, 4000);
+    }
+
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function myFunction() {
+      var x = document.getElementById("navDemo");
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+      } else {
+        x.className = x.className.replace(" w3-show", "");
+      }
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    var modal = document.getElementById('ticketModal');
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+</body>
+
+</html>
